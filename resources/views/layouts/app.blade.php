@@ -6,9 +6,7 @@
     <title>PT Digital Solusi Nusantara</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- 1. AOS CSS -->
@@ -29,8 +27,8 @@
         </a>
 
         <button class="navbar-toggler navbar-dark border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto align-items-lg-center">
@@ -56,18 +54,19 @@
         </div>
       </div>
     </nav>
-</header>
+  </header>
 
   <main class="flex-grow-1">
       @yield('content')
   </main>
 
+  <!-- FOOTER TERHUBUNG DATABASE -->
   <footer class="bg-dark text-white pt-5 pb-3 position-relative overflow-hidden" style="z-index: 1;">
     <div class="container pt-4" data-aos="fade-up">
         
         <div class="row g-4 mb-5">
             
-            <!-- KOLOM 1: INFO PERUSAHAAN -->
+            <!-- KOLOM 1: INFO PERUSAHAAN & SOSIAL MEDIA -->
             <div class="col-lg-4 col-md-6">
                 <div class="d-flex align-items-center gap-2 mb-3">
                     <div class="bg-indigo text-white rounded-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
@@ -78,14 +77,15 @@
                 <p class="text-secondary small leading-relaxed mb-4">
                     Mitra teknologi terpercaya dalam merancang dan mengimplementasikan solusi ekosistem digital ujung ke ujung (end-to-end) dengan standar kualitas terbaik.
                 </p>
+                <!-- Sosmed dinamis dari database (jika tersedia, fallback ke default) -->
                 <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                    <a href="https://linkedin.com/in/{{ $kontak->linkedin ?? '#' }}" target="_blank" class="btn btn-outline-secondary btn-sm rounded-circle d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;" title="LinkedIn">
                         <i class="fa-brands fa-linkedin-in"></i>
                     </a>
-                    <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                    <a href="https://github.com/{{ $kontak->github ?? '#' }}" target="_blank" class="btn btn-outline-secondary btn-sm rounded-circle d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;" title="GitHub">
                         <i class="fa-brands fa-github"></i>
                     </a>
-                    <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                    <a href="https://instagram.com/{{ $kontak->instagram ?? 'digitalsolusi' }}" target="_blank" class="btn btn-outline-secondary btn-sm rounded-circle d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;" title="Instagram">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
                 </div>
@@ -95,39 +95,42 @@
             <div class="col-lg-2 col-md-6">
                 <h6 class="fw-bold text-white mb-3 text-uppercase tracking-wider fs-6">Navigasi</h6>
                 <ul class="list-unstyled d-flex flex-column gap-2 small">
-                    <li><a href="#hero" class="text-secondary text-decoration-none hover-white transition-all">Beranda</a></li>
-                    <li><a href="#profil" class="text-secondary text-decoration-none hover-white transition-all">Profil Perusahaan</a></li>
-                    <li><a href="#produk" class="text-secondary text-decoration-none hover-white transition-all">Produk & Layanan</a></li>
-                    <li><a href="#artikel" class="text-secondary text-decoration-none hover-white transition-all">Artikel & Berita</a></li>
+                    <li><a href="{{ route('dashboard') }}" class="text-secondary text-decoration-none hover-white transition-all">Beranda</a></li>
+                    <li><a href="{{ route('profil') }}" class="text-secondary text-decoration-none hover-white transition-all">Profil Perusahaan</a></li>
+                    <li><a href="{{ route('produk') }}" class="text-secondary text-decoration-none hover-white transition-all">Produk & Layanan</a></li>
+                    <li><a href="{{ route('artikel') }}" class="text-secondary text-decoration-none hover-white transition-all">Artikel & Berita</a></li>
+                    <li><a href="{{ route('galeri') }}" class="text-secondary text-decoration-none hover-white transition-all">Galeri Kegiatan</a></li>
+                    <li><a href="{{ route('kontak') }}" class="text-secondary text-decoration-none hover-white transition-all">Kontak</a></li>
                 </ul>
             </div>
 
-            <!-- KOLOM 3: LAYANAN UNGGULAN -->
+            <!-- KOLOM 3: LAYANAN UTAMA (Dinamis dari Database Tabel Produk) -->
             <div class="col-lg-3 col-md-6">
                 <h6 class="fw-bold text-white mb-3 text-uppercase tracking-wider fs-6">Layanan Utama</h6>
                 <ul class="list-unstyled d-flex flex-column gap-2 small">
-                    <li><a href="#produk" class="text-secondary text-decoration-none hover-white transition-all">Pengembangan Web & Apps</a></li>
-                    <li><a href="#produk" class="text-secondary text-decoration-none hover-white transition-all">Konsultasi Arsitektur IT</a></li>
-                    <li><a href="#produk" class="text-secondary text-decoration-none hover-white transition-all">Cloud & Cyber Security</a></li>
-                    <li><a href="#produk" class="text-secondary text-decoration-none hover-white transition-all">Managed Service</a></li>
+                    @forelse($produks ?? [] as $item)
+                        <li><a href="{{ route('produk') }}" class="text-secondary text-decoration-none hover-white transition-all">{{ $item->nama_produk }}</a></li>
+                    @empty
+                        <li><span class="text-secondary">Belum ada layanan</span></li>
+                    @endforelse
                 </ul>
             </div>
 
-            <!-- KOLOM 4: KONTAK PERUSAHAAN -->
+            <!-- KOLOM 4: KONTAK PERUSAHAAN (Dinamis dari Database) -->
             <div class="col-lg-3 col-md-6">
                 <h6 class="fw-bold text-white mb-3 text-uppercase tracking-wider fs-6">Hubungi Kami</h6>
                 <ul class="list-unstyled d-flex flex-column gap-3 small text-secondary">
                     <li class="d-flex align-items-start gap-3">
                         <i class="fa-solid fa-location-dot text-indigo fs-5 mt-1"></i>
-                        <span>Jl. BKR No. 212, Pasirluyu, Kec. Regol, Kota Bandung, Jawa Barat 40254</span>
+                        <span>{{ $kontak->alamat ?? 'Belum ada alamat perusahaan' }}</span>
                     </li>
                     <li class="d-flex align-items-center gap-3">
                         <i class="fa-solid fa-envelope text-indigo fs-5"></i>
-                        <span>info@digitalsolusi.co.id</span>
+                        <span>{{ $kontak->email ?? 'Belum ada email perusahaan' }}</span>
                     </li>
                     <li class="d-flex align-items-center gap-3">
                         <i class="fa-solid fa-phone text-indigo fs-5"></i>
-                        <span>+62 821-1234-5678</span>
+                        <span>{{ $kontak->telepon ?? 'Belum ada telepon perushaan' }}</span>
                     </li>
                 </ul>
             </div>
@@ -146,7 +149,7 @@
                 <a href="#" class="text-secondary text-decoration-none hover-white transition-all">Syarat & Ketentuan</a>
                 <span class="text-muted">•</span>
                 
-                <!-- TAUTAN LOGIN ADMIN (Samar di pojok kanan bawah) -->
+                <!-- TAUTAN LOGIN ADMIN -->
                 <a href="{{ route('login') }}" class="text-secondary text-decoration-none hover-indigo transition-all opacity-75" title="Akses Internal Staff">
                     <i class="fa-solid fa-user-lock me-1 small"></i> Admin Portal
                 </a>
@@ -157,14 +160,13 @@
 </footer>
    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init({
-        duration: 800, // Durasi animasi dalam milidetik (0.8 detik)
-        once: true,    // Animasi hanya berjalan 1x saat pertama kali di-scroll
-        offset: 120    // Jarak scroll dari elemen sebelum animasi mulai
-      });
-    </script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 120
+  });
+</script>
 </body>
 </html>

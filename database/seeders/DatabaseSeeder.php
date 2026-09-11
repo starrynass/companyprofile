@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             ArtikelSeeder::class,
             GaleriSeeder::class,
             UserSeeder::class,
+            KontakSeeder::class
         ]);
     }
 }

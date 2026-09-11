@@ -32,13 +32,17 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 Route::get('/produk', [App\Http\Controllers\ProdukController::class, 'index'])->name('produk');
 Route::get('/profil', [App\Http\Controllers\ProfilController::class, 'index'])->name('profil');
 Route::get('/galeri', [App\Http\Controllers\GaleriController::class, 'index'])->name('galeri');
-Route::get('/artikel', [App\Http\Controllers\ArtikelController::class, 'index'])->name('artikel');
-Route::get('/kontak', [App\Http\Controllers\KontakController::class, 'index'])->name('kontak');
 
-Route::post('/kontak/kirim', [PesanController::class, 'store'])->name('kontak.store');
+Route::get('/kontak', [App\Http\Controllers\KontakController::class, 'index'])->name('kontak');
+Route::post('/pesan/kirim', [PesanController::class, 'store'])->name('pesan.store');
 
 // Route untuk Admin (Gunakan middleware auth jika ada)
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/pesan', [PesanController::class, 'index'])->name('pesan.index');
     Route::delete('/pesan/{id}', [PesanController::class, 'destroy'])->name('pesan.destroy');
 });
+
+Route::get('/artikel', [ArtikelController::class, 'index'])->name('artikel');
+
+// Route untuk Halaman Detail Artikel (Baca Selengkapnya)
+Route::get('/artikel/{id}', [ArtikelController::class, 'show'])->name('artikel.show');

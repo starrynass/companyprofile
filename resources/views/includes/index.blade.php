@@ -216,12 +216,12 @@
                                     <p class="card-text text-muted small mb-3 line-clamp-3">
                                         {{ $item->ringkasan }}
                                     </p>
-                                </div>
-
-                                <div class="pt-3 border-top mt-auto hover-arrow">
-                                    <a href="{{ route('artikel', $item->id) }}" class="btn btn-outline-indigo btn-sm rounded-pill w-100 fw-semibold">
+                                    <div class="pt-3 border-top mt-auto hover-arrow">
+                                        <a href="{{ route('artikel', $item->id) }}" class="btn btn-outline-indigo btn-sm rounded-pill w-100 fw-semibold">
                                         Baca Selengkapnya <i class="fa-solid fa-arrow-right ms-1 transition-all"></i>
-                                    </a>
+                                        </a>
+                                    </div>
+            
                                 </div>
                             </div>
                         </div>
@@ -274,7 +274,7 @@
     </section>
 
     <!-- SECTION KONTAK -->
-    <section id="kontak" class="py-5 bg-white">
+<section id="kontak" class="py-5 bg-white">
         <div class="container py-5">
             <div class="text-center mb-5" data-aos="fade-up">
                 <span class="text-indigo fw-bold text-uppercase tracking-wider small">Hubungi Kami</span>
@@ -289,40 +289,44 @@
                         <div>
                             <h4 class="fw-bold text-dark mb-4">Informasi Perusahaan</h4>
                             
+                            <!-- Alamat Kantor -->
                             <div class="d-flex align-items-start mb-4">
                                 <div class="icon-box bg-indigo-subtle text-indigo rounded-3 p-3 me-3 flex-shrink-0">
                                     <i class="fa-solid fa-location-dot fs-5"></i>
                                 </div>
                                 <div>
                                     <h6 class="fw-bold mb-1 text-dark">Alamat Kantor</h6>
-                                    <p class="text-muted small mb-0">Jl. BKR No. 212, Pasirluyu, Kec. Regol, Kota Bandung, Jawa Barat 40254</p>
+                                    <p class="text-muted small mb-0">{{ $kontak->alamat ?? 'Jl. BKR No. 212, Pasirluyu, Kec. Regol, Kota Bandung, Jawa Barat 40254' }}</p>
                                 </div>
                             </div>
 
+                            <!-- Nomor Telepon -->
                             <div class="d-flex align-items-start mb-4">
                                 <div class="icon-box bg-indigo-subtle text-indigo rounded-3 p-3 me-3 flex-shrink-0">
                                     <i class="fa-solid fa-phone fs-5"></i>
                                 </div>
                                 <div>
                                     <h6 class="fw-bold mb-1 text-dark">Nomor Telepon</h6>
-                                    <p class="text-muted small mb-0">+62 821-1234-5678</p>
+                                    <p class="text-muted small mb-0">{{ $kontak->telepon ?? '+62 821-1234-5678' }}</p>
                                 </div>
                             </div>
 
+                            <!-- Email Resmi -->
                             <div class="d-flex align-items-start mb-4">
                                 <div class="icon-box bg-indigo-subtle text-indigo rounded-3 p-3 me-3 flex-shrink-0">
                                     <i class="fa-solid fa-envelope fs-5"></i>
                                 </div>
                                 <div>
                                     <h6 class="fw-bold mb-1 text-dark">Email Resmi</h6>
-                                    <p class="text-muted small mb-0">info@digitalsolusi.co.id</p>
+                                    <p class="text-muted small mb-0">{{ $kontak->email ?? 'info@digitalsolusi.co.id' }}</p>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- Google Maps Embed -->
                         <div class="rounded-3 overflow-hidden shadow-sm mt-3" style="height: 200px;">
                             <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.627341381363!2d107.6186326!3d-6.9350352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e882b53f65b3%3A0xb35a7b746d88b48b!2sSMK%20Negeri%204%20Bandung!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+                                src="{{ $kontak->google_maps_embed ?? 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.627341381363!2d107.6186326!3d-6.9350352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e882b53f65b3%3A0xb35a7b746d88b48b!2sSMK%20Negeri%204%20Bandung!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid' }}" 
                                 width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                             </iframe>
                         </div>
@@ -331,7 +335,7 @@
 
                 <!-- FORM HUBUNGI KAMI -->
                 <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
-                    <form action="{{ route('kontak.store') }}" method="POST" class="card p-4 p-md-5 border-0 shadow-lg rounded-4 bg-slate-subtle h-100 justify-content-center">
+                    <form action="{{ route('pesan.store') }}" method="POST" class="card p-4 p-md-5 border-0 shadow-lg rounded-4 bg-slate-subtle h-100 justify-content-center">
                         @csrf
                         <h4 class="fw-bold text-dark mb-4">Kirim Pesan</h4>
                         

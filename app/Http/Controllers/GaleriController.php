@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Galeri;
 use Illuminate\Http\Request;
 
 class GaleriController extends Controller
 {
     public function index()
     {
-        return view('galeri');
+        $galeris = Galeri::latest()->paginate(6);
+
+        return view('includes.galeri', compact('galeris'));
     }
 }
