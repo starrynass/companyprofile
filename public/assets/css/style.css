@@ -1,0 +1,206 @@
+/* Glassmorphism Navbar Gelap Transparan */
+.navbar-custom {
+    background: rgba(15, 23, 42, 0.50); /* Warna dasar gelap transparan */
+    backdrop-filter: blur(12px);         /* Efek kaca buram / blur */
+    -webkit-backdrop-filter: blur(12px); /* Dukungan untuk Safari */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Garis tepi tipis transparan */
+    padding-top: 14px;
+    padding-bottom: 14px;
+    transition: all 0.3s ease;
+}
+
+/* Warna Judul Brand / Logo */
+.navbar-custom .navbar-brand {
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+/* Warna Link Navigasi */
+.navbar-custom .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: color 0.2s ease-in-out;
+}
+
+/* Warna Link Saat Di-hover */
+.navbar-custom .nav-link:hover {
+    color: #38bdf8 !important; /* Warna biru terang/cyan saat kursor menempel */
+}
+
+/* Tombol Login Admin */
+.btn-login-admin {
+    background-color: #0d6efd;
+    color: #ffffff !important;
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-login-admin:hover {
+    background-color: #0b5ed7;
+    transform: translateY(-2px);
+}
+
+.transition-all {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+:root {
+    --color-indigo: #6366f1;
+    --color-indigo-dark: #4f46e5;
+    --color-cyan: #06b6d4;
+    --bg-slate: #f8fafc;
+}
+
+.text-indigo { color: var(--color-indigo) !important; }
+.text-cyan { color: var(--color-cyan) !important; }
+
+.bg-indigo { background-color: var(--color-indigo) !important; }
+.bg-indigo-subtle { background-color: #eef2ff !important; }
+.bg-cyan-subtle { background-color: #ecfeff !important; }
+.bg-slate-subtle { background-color: var(--bg-slate) !important; }
+
+.bg-indigo-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%) !important;
+}
+
+.btn-indigo {
+    background-color: var(--color-indigo);
+    color: #fff;
+    border: none;
+}
+.btn-indigo:hover {
+    background-color: var(--color-indigo-dark);
+    color: #fff;
+}
+
+/* --- GLASSMORPHISM CARD --- */
+.glass-card {
+    background: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.transition-all {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* --- ANIMASI INTERAKTIF & HOVER BOLD --- */
+
+/* 1. Lift Card Ekstra Kenyal (Translate Y -8px + Scale) */
+.hover-lift {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+.hover-lift:hover {
+    transform: translateY(-8px) scale(1.01) !important;
+    box-shadow: 0 20px 30px -10px rgba(99, 102, 241, 0.25) !important;
+}
+
+.card-number-badge {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: rgba(15, 23, 42, 0.04);
+    pointer-events: none;
+    line-height: 1;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+/* Mengubah warna watermark saat kartu di-hover */
+.hover-lift:hover .card-number-badge {
+    color: rgba(99, 102, 241, 0.30);
+    transform: translateY(-4px);
+}
+
+/* 2. Rotasi & Zoom Icon Lebih Terasa (12deg + 1.15 Scale) */
+.hover-rotate-icon:hover .icon-box-animate {
+    transform: rotate(12deg) scale(1.15) !important;
+    background-color: #6366f1 !important;
+    color: #fff !important;
+}
+.icon-box-animate {
+    transition: all 0.3s ease !important;
+}
+
+/* 3. Floating Micro-Animation */
+.floating-element {
+    animation: floating 4s ease-in-out infinite;
+}
+@keyframes floating {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* 4. Pergerakan Panah Lebih Jauh */
+.hover-arrow:hover i {
+    transform: translateX(8px);
+}
+
+/* 5. Custom Focus Input Form */
+.custom-input {
+    transition: all 0.3s ease;
+}
+.custom-input:focus {
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.25) !important;
+    background-color: #fff !important;
+}
+
+.overflow-x-hidden {
+    overflow-x: hidden !important;
+}
+.pointer-events-none {
+    pointer-events: none;
+}
+
+/* GALERI */
+.galeri-card {
+    height: 260px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeri-img {
+    transition: transform 0.5s ease;
+}
+
+.galeri-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.2) 60%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.galeri-title {
+    transform: translateY(15px);
+    transition: transform 0.3s ease;
+}
+
+/* Hover State */
+.galeri-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12) !important;
+}
+
+.galeri-card:hover .galeri-img {
+    transform: scale(1.08);
+}
+
+.galeri-card:hover .galeri-overlay {
+    opacity: 1;
+}
+
+.galeri-card:hover .galeri-title {
+    transform: translateY(0);
+}
+
+.hover-paper-plane:hover i {
+    transform: translateX(-8px);
+}
