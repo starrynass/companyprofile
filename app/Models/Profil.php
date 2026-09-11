@@ -12,6 +12,7 @@ class Profil extends Model
     protected $table = 'profils';
 
     protected $fillable = [
+        'nama_perusahaan', // <-- Tambahkan ini di bagian atas
         'sejarah',
         'gambar_sejarah',
         'visi',

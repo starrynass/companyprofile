@@ -23,7 +23,7 @@
       <div class="container">
         <a class="navbar-brand d-flex align-item-center" href="#home">
           <i class="fa-solid fa-laptop-code me-2 fs-3 text-indigo"></i>
-          <span>PT Digital Solusi Nusantara</span>
+          <span>{{ $profil->nama_perusahaan ?? 'Belum ada nama perusahaan' }}</span>
         </a>
 
         <button class="navbar-toggler navbar-dark border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -141,7 +141,7 @@
 
         <!-- BOTTOM BAR: COPYRIGHT & ADMIN LINK TERSEMBUNYI -->
         <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-3 small text-secondary">
-            <p class="mb-0">&copy; {{ date('Y') }} PT Digital Solusi Nusantara. All rights reserved.</p>
+            <p class="mb-0">&copy; {{ date('Y') }} {{ $profil->nama_perusahaan ?? 'Belum ada nama perusahaan' }}. All rights reserved.</p>
 
             <div class="d-flex align-items-center gap-3">
                 <a href="#" class="text-secondary text-decoration-none hover-white transition-all">Privasi</a>

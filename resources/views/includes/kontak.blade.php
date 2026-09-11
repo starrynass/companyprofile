@@ -42,7 +42,7 @@
                             </div>
                             <div>
                                 <span class="text-indigo fw-bold small text-uppercase tracking-wider">Kantor Pusat</span>
-                                <h4 class="fw-bold text-dark mb-0">PT Digital Solusi Nusantara</h4>
+                                <h4 class="fw-bold text-dark mb-0">{{ $profil->nama_perusahaan ?? 'Belum ada nama perusahaan' }}</h4>
                             </div>
                         </div>
                         

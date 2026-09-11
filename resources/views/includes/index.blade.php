@@ -22,7 +22,7 @@
                     Akselerasi Digitalisasi Bisnis Anda Bersama Kami
                 </h1>
                 <p class="lead text-light mb-4" style="text-shadow: 0 2px 5px rgba(0,0,0,0.7); max-width: 650px;">
-                    PT Digital Solusi Nusantara menyediakan layanan pengembangan software, infrastruktur jaringan, dan konsultasi IT secara profesional.
+                    {{ $profil->nama_perusahaan ?? 'Belum ada nama perusahaan' }} menyediakan layanan pengembangan software, infrastruktur jaringan, dan konsultasi IT secara profesional.
                 </p>
                 <div class="d-flex gap-3 flex-wrap">
                     <a href="#produk" class="btn btn-indigo btn-lg px-4 shadow-lg fw-semibold btn-hover-grow">
@@ -191,7 +191,7 @@
             <div class="text-center mb-5" data-aos="fade-up">
                 <span class="text-indigo fw-bold text-uppercase small tracking-wider">Artikel & Berita</span>
                 <h2 class="fw-bold text-dark display-6">Wawasan Seputar Perusahaan</h2>
-                <p class="text-muted">Kumpulan berita resmi, liputan kegiatan, dan informasi teknologi dari PT Digital Solusi Nusantara</p>
+                <p class="text-muted">Kumpulan berita resmi, liputan kegiatan, dan informasi teknologi dari {{ $profil->nama_perusahaan ?? 'Belum ada nama perusahaan' }}</p>
             </div>
 
             <div class="row g-4">

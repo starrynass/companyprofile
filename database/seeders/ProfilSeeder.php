@@ -12,6 +12,7 @@ class ProfilSeeder extends Seeder
     {
         // 1. Buat Data Utama Profil Perusahaan
         $profil = Profil::create([
+            'nama_perusahaan' => "PT Digital Solusi Nusantara",
             'sejarah'          => "Didirikan dengan semangat inovasi, perusahaan kami berawal dari sebuah tim kecil yang berfokus pada penyediaan solusi perangkat lunak terintegrasi.\n\nSeiring berjalannya waktu, kami berkembang menjadi penyedia layanan IT terpercaya yang melayani berbagai sektor bisnis dalam mempercepat transformasi digital.",
             'gambar_sejarah'  => null, // Bisa diisi path foto jika ada di storage (misal: 'profil/sejarah.jpg')
             'visi'             => 'Menjadi perusahaan penyedia solusi teknologi informasi terdepan dan terpercaya yang memberdayakan bisnis untuk berkembang di era digital.',

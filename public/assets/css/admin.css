@@ -1,0 +1,234 @@
+:root {
+    --sidebar-width: 260px;
+    --sidebar-collapsed-width: 80px;
+    --primary-indigo: #6366f1;
+    --hover-indigo: #4f46e5;
+    --color-indigo: #6366f1;
+    --color-indigo-dark: #4f46e5;
+    --color-cyan: #06b6d4;
+    --bg-slate: #f8fafc;
+}
+
+body {
+    background-color: var(--bg-slate, #f8fafc);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   SIDEBAR STYLING
+   ========================================= */
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #0f172a;
+    color: #fff;
+    z-index: 1050;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* State ketika Sidebar Ditutup/Minimized */
+body.sidebar-toggled .sidebar {
+    width: var(--sidebar-collapsed-width);
+}
+
+body.sidebar-toggled .main-wrapper {
+    margin-left: var(--sidebar-collapsed-width);
+}
+
+body.sidebar-toggled .sidebar .sidebar-brand span,
+body.sidebar-toggled .sidebar .sidebar-link span,
+body.sidebar-toggled .sidebar .logout-text {
+    display: none;
+}
+
+body.sidebar-toggled .sidebar .sidebar-link {
+    justify-content: center;
+    padding: 0.75rem;
+}
+
+body.sidebar-toggled .sidebar .sidebar-link i {
+    margin-right: 0;
+    font-size: 1.25rem;
+}
+
+.sidebar-brand {
+    padding: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.sidebar-menu {
+    padding: 1rem 0;
+    list-style: none;
+    margin: 0;
+    max-height: calc(100vh - 160px);
+    overflow-y: auto;
+}
+
+.sidebar-menu::-webkit-scrollbar {
+    width: 4px;
+}
+.sidebar-menu::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+}
+
+.sidebar-link i {
+    width: 24px;
+    margin-right: 12px;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+}
+
+.sidebar-link:hover, .sidebar-link.active {
+    color: #fff;
+    background-color: var(--color-indigo, #6366f1);
+}
+
+.sidebar-link:hover i {
+    transform: scale(1.1);
+}
+
+/* =========================================
+   MAIN CONTENT & TOPBAR
+   ========================================= */
+.main-wrapper {
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.topbar {
+    height: 70px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* =========================================
+   WARNA & KELAS UTILITY ADMIN
+   ========================================= */
+.text-indigo { color: var(--color-indigo) !important; }
+.text-cyan { color: var(--color-cyan) !important; }
+
+.bg-indigo { background-color: var(--color-indigo) !important; }
+.bg-indigo-subtle { background-color: #eef2ff !important; }
+.bg-cyan-subtle { background-color: #ecfeff !important; }
+.bg-slate-subtle { background-color: var(--bg-slate) !important; }
+
+.btn-indigo {
+    background-color: var(--color-indigo);
+    color: #fff;
+    border: none;
+}
+.btn-indigo:hover {
+    background-color: var(--color-indigo-dark);
+    color: #fff;
+}
+
+.btn-outline-indigo {
+    color: var(--color-indigo);
+    border-color: var(--color-indigo);
+    background-color: transparent;
+}
+.btn-outline-indigo:hover {
+    color: #fff;
+    background-color: var(--color-indigo);
+    border-color: var(--color-indigo);
+}
+
+.transition-all {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* =========================================
+   ANIMASI INTERAKTIF & HOVER DASHBOARD
+   ========================================= */
+
+/* 1. Lift Card Ekstra Kenyal */
+.hover-lift {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+.hover-lift:hover {
+    transform: translateY(-8px) scale(1.01) !important;
+    box-shadow: 0 20px 30px -10px rgba(99, 102, 241, 0.25) !important;
+}
+
+/* 2. Rotasi & Zoom Icon pada Kartu */
+.hover-rotate-icon:hover .icon-box-animate {
+    transform: rotate(12deg) scale(1.15) !important;
+    background-color: #6366f1 !important;
+    color: #fff !important;
+}
+.icon-box-animate {
+    transition: all 0.3s ease !important;
+}
+
+/* 3. Floating Micro-Animation (Untuk Ikon Sambutan) */
+.floating-element {
+    animation: floating 4s ease-in-out infinite;
+}
+@keyframes floating {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* 4. Pergerakan Panah pada Tombol */
+.hover-arrow:hover i {
+    transform: translateX(8px);
+}
+.hover-arrow i {
+    transition: transform 0.2s ease;
+}
+
+/* 5. Custom Focus Input Form */
+.custom-input {
+    transition: all 0.3s ease;
+}
+.custom-input:focus {
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.25) !important;
+    background-color: #fff !important;
+}
+
+    /* Styling aktif untuk tab pills profil */
+    .nav-pills .nav-link.active {
+        background-color: var(--color-indigo, #6366f1) !important;
+        color: #fff !important;
+    }
+    .nav-pills .nav-link {
+        color: #64748b;
+        transition: all 0.2s;
+    }
+    .nav-pills .nav-link:hover:not(.active) {
+        background-color: #f1f5f9;
+        color: #0f172a;
+    }

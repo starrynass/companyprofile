@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View; 
 use App\Models\Produk;             
 use App\Models\Kontak;
+use App\Models\Profil;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,9 +23,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer('*', function ($view) {
-            $view->with('produks', Produk::limit(5)->get());
+        View::composer(['layouts.app', 'frontend.*'], function ($view) {
+            $view->with('profil', Profil::first());
             $view->with('kontak', Kontak::first());
+            $view->with('produks', Produk::limit(5)->get());
         });
     }
 }
