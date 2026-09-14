@@ -3,36 +3,36 @@
 @section('content')
 <!-- HEADER DETAIL ARTIKEL (HERO) -->
 <section class="position-relative text-white py-5 d-flex align-items-center"
-         style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 27, 75, 0.90) 100%), url('{{ Str::startsWith($artikel->thumbnail, 'http') ? $artikel->thumbnail : asset('storage/' . $artikel->thumbnail) }}') center/cover no-repeat; min-height: 50vh;">
+         style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 27, 75, 0.90) 100%), url('{{ Str::startsWith($artikel->thumbnail, 'http') ? $artikel->thumbnail : asset('storage/' . $artikel->thumbnail) }}') center/cover no-repeat; min-height: 45vh;">
     
     <div class="container py-5 mt-3 position-relative" style="z-index: 2; max-width: 900px;" data-aos="fade-down">
         <!-- Tombol Kembali -->
         <nav aria-label="breadcrumb" class="mb-3">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
-                    <a href="{{ route('artikel') }}" class="text-light text-decoration-none fw-semibold small px-3 py-2 rounded-pill bg-white bg-opacity-10 backdrop-blur d-inline-flex align-items-center gap-2">
+                    <a href="{{ route('artikel') }}" class="text-light text-decoration-none fw-semibold small px-3 py-2 rounded-pill bg-white bg-opacity-10 backdrop-blur d-inline-flex align-items-center gap-2 transition-all hover-lift">
                         <i class="fa-solid fa-arrow-left"></i> Kembali ke Daftar Artikel
                     </a>
                 </li>
             </ol>
         </nav>
 
-        <!-- Tanggal & Kategori -->
+        <!-- Tanggal & Kategori Badge -->
         <div class="mb-3">
-            <span class="badge bg-indigo text-white fw-semibold px-3 py-2 rounded-pill shadow-sm">
+            <span class="badge bg-indigo bg-opacity-75 backdrop-blur text-white fw-semibold px-3 py-2 rounded-pill shadow-sm border border-light border-opacity-25">
                 <i class="fa-regular fa-calendar-days me-1"></i> {{ \Carbon\Carbon::parse($artikel->tanggal)->format('d M Y') }}
             </span>
         </div>
 
         <!-- Judul Artikel -->
-        <h1 class="display-5 fw-bold text-white mb-4" style="text-shadow: 0 3px 10px rgba(0,0,0,0.7); line-height: 1.3;">
+        <h1 class="display-5 fw-bold text-white mb-3" style="text-shadow: 0 3px 8px rgba(0,0,0,0.7); line-height: 1.3;">
             {{ $artikel->judul }}
         </h1>
     </div>
 
     <!-- Gelombang SVG Smooth -->
     <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 2;" data-aos="fade-up" data-aos-duration="800">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: 100%; height: 40px; fill: #f8fafc;">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: 100%; height: 45px; fill: #f8fafc;">
             <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,120 L0,120 Z"></path>
         </svg>
     </div>
@@ -71,14 +71,14 @@
                         {!! $artikel->konten !!}
                     </div>
 
-                    <!-- Bagian Tombol Aksi & Share (Diperbaiki agar rapi dan ikon X muncul dengan aman menggunakan class alternatif twitter/x) -->
+                    <!-- Bagian Tombol Aksi & Share -->
                     <div class="mt-5 pt-4 border-top d-flex justify-content-between align-items-center flex-wrap gap-3">
-                        <a href="{{ route('artikel') }}" class="btn btn-outline-indigo rounded-pill px-4 fw-semibold">
-                            <i class="fa-solid fa-arrow-left me-2"></i> Kembali ke Daftar Artikel
+                        <a href="{{ route('artikel') }}" class="btn btn-outline-indigo rounded-pill px-4 py-2 fw-semibold d-inline-flex align-items-center gap-2">
+                            <i class="fa-solid fa-arrow-left"></i> Kembali ke Daftar
                         </a>
                         
                         <div class="d-flex align-items-center gap-2 text-muted small">
-                            <span class="fw-semibold me-1">Bagikan:</span>
+                            <span class="fw-semibold me-1 text-dark">Bagikan:</span>
                             <!-- Tombol WhatsApp -->
                             <a href="https://wa.me/?text={{ urlencode($artikel->judul . ' - ' . request()->url()) }}" 
                                target="_blank" 
@@ -86,7 +86,7 @@
                                title="Bagikan ke WhatsApp">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </a>
-                            <!-- Tombol Twitter / X (Menggunakan class fallback yang kompatibel) -->
+                            <!-- Tombol Twitter / X -->
                             <a href="https://twitter.com/intent/tweet?text={{ urlencode($artikel->judul . ' ' . request()->url()) }}" 
                                target="_blank" 
                                class="btn btn-sm btn-outline-dark rounded-circle shadow-sm share-btn-social" 
@@ -100,23 +100,33 @@
                 <!-- REKOMENDASI ARTIKEL LAIN -->
                 @if(isset($artikelLain) && $artikelLain->count() > 0)
                     <div class="mt-5 pt-3" data-aos="fade-up">
-                        <h4 class="fw-bold text-dark mb-4"><i class="fa-solid fa-book-open-reader text-indigo me-2"></i> Baca Juga Artikel Lainnya</h4>
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <h4 class="fw-bold text-dark m-0"><i class="fa-solid fa-book-open-reader text-indigo me-2"></i> Baca Juga Artikel Lainnya</h4>
+                            <span class="text-muted small">Wawasan pilihan lainnya</span>
+                        </div>
                         <div class="row g-4">
                             @foreach($artikelLain as $item)
-                                <div class="col-md-4">
+                                <div class="col-md-4" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
                                     <div class="card bg-white border-0 rounded-4 shadow-sm h-100 hover-lift overflow-hidden d-flex flex-column">
-                                        <div style="height: 150px; overflow: hidden;">
+                                        <div class="position-relative overflow-hidden" style="height: 160px;">
                                             <img src="{{ Str::startsWith($item->thumbnail, 'http') ? $item->thumbnail : asset('storage/' . $item->thumbnail) }}" 
                                                  alt="{{ $item->judul }}" 
-                                                 class="w-100 h-100 object-fit-cover">
+                                                 class="w-100 h-100 object-fit-cover transition-transform duration-500 hover-zoom">
+                                            <span class="badge bg-dark bg-opacity-75 backdrop-blur text-light position-absolute top-0 start-0 m-2 px-2.5 py-1 rounded-pill small" style="font-size: 0.7rem;">
+                                                {{ date('d M Y', strtotime($item->tanggal)) }}
+                                            </span>
                                         </div>
-                                        <div class="card-body p-3 d-flex flex-column flex-grow-1">
+                                        <div class="card-body p-3.5 d-flex flex-column flex-grow-1">
                                             <h6 class="fw-bold text-dark mb-2 line-clamp-2" style="font-size: 0.95rem;">
                                                 {{ $item->judul }}
                                             </h6>
-                                            <div class="mt-auto pt-2">
-                                                <a href="{{ route('artikel.show', $item->id) }}" class="text-indigo text-decoration-none small fw-semibold d-flex align-items-center gap-1 hover-arrow">
-                                                    <span>Baca artikel</span> <i class="fa-solid fa-arrow-right small transition-all"></i>
+                                            <p class="text-secondary small mb-3 flex-grow-1" style="font-size: 0.85rem;">
+                                                {{ Str::limit($item->ringkasan, 60) }}
+                                            </p>
+                                            <div class="mt-auto pt-2 border-top d-flex align-items-center justify-content-between">
+                                                <span class="text-indigo small fw-semibold" style="font-size: 0.8rem;">Selengkapnya</span>
+                                                <a href="{{ route('artikel.show', $item->id) }}" class="btn btn-sm btn-light rounded-circle text-indigo shadow-sm border d-flex align-items-center justify-content-center" style="width: 32px; height: 32px; min-width: 32px;">
+                                                    <i class="fa-solid fa-arrow-right small"></i>
                                                 </a>
                                             </div>
                                         </div>
@@ -132,7 +142,7 @@
     </div>
 </div>
 
-<!-- Tambahan Style CSS Khusus Tombol Share agar Presisi di Tengah -->
+<!-- Tambahan Style CSS Khusus Tombol Share -->
 <style>
     .share-btn-social {
         width: 38px !important;

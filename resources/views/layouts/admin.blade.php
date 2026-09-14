@@ -61,15 +61,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="sidebar-link {{ request()->is('admin/galeri*') ? 'active' : '' }}" title="Kelola Galeri">
-                        <i class="fa-solid fa-images"></i>
+                    <a href="{{ route('admin.galeri-admin') }}" class="sidebar-link {{ request()->is('admin/galeri*') ? 'active' : '' }}" title="Kelola Galeri">
+                        <i class="fa-solid fa-newspaper"></i>
                         <span>Kelola Galeri</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.pesan.index') }}" class="sidebar-link {{ request()->is('admin/pesan*') ? 'active' : '' }}" title="Kelola Kontak">
+                    <a href="{{ route('admin.kontak-pesan-admin') }}" class="sidebar-link {{ request()->is('admin/kontak-pesan*') ? 'active' : '' }}" title="Kelola Kontak-Pesan">
                         <i class="fa-solid fa-address-book"></i>
-                        <span>Kelola Kontak</span>
+                        <span>Kelola Kontak & Pesan</span>
                     </a>
                 </li>
             </ul>

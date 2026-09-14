@@ -199,3 +199,34 @@
 .hover-paper-plane:hover i {
     transform: translateX(-8px);
 }
+
+/* Artikel */
+.action-arrow-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        transition: all 0.3s ease;
+    }
+    
+    /* Animasi Hover Card & Tombol Panah */
+    .card-article-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 1rem 3rem rgba(99, 102, 241, 0.12) !important;
+    }
+
+    .card-article-item:hover .action-arrow-btn {
+        background-color: #6366f1 !important;
+        color: #ffffff !important;
+        border-color: #6366f1 !important;
+        transform: translateX(3px);
+    }
+
+    .card-article-item:hover .article-title-link {
+        color: #6366f1 !important;
+        transition: color 0.2s ease;
+    }
+
+    /* Efek Zoom Gambar saat Card Disorot */
+    .card-article-item:hover .hover-zoom {
+        transform: scale(1.08);
+    }

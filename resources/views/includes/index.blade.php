@@ -311,7 +311,6 @@
                                 </div>
                             </div>
 
-                            <!-- Email Resmi -->
                             <div class="d-flex align-items-start mb-4">
                                 <div class="icon-box bg-indigo-subtle text-indigo rounded-3 p-3 me-3 flex-shrink-0">
                                     <i class="fa-solid fa-envelope fs-5"></i>
@@ -333,7 +332,6 @@
                     </div>
                 </div>
 
-                <!-- FORM HUBUNGI KAMI -->
                 <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
                     <form action="{{ route('pesan.store') }}" method="POST" class="card p-4 p-md-5 border-0 shadow-lg rounded-4 bg-slate-subtle h-100 justify-content-center">
                         @csrf
