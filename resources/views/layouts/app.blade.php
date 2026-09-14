@@ -60,13 +60,11 @@
       @yield('content')
   </main>
 
-  <!-- FOOTER TERHUBUNG DATABASE -->
   <footer class="bg-dark text-white pt-5 pb-3 position-relative overflow-hidden" style="z-index: 1;">
     <div class="container pt-4" data-aos="fade-up">
         
         <div class="row g-4 mb-5">
             
-            <!-- KOLOM 1: INFO PERUSAHAAN & SOSIAL MEDIA -->
             <div class="col-lg-4 col-md-6">
                 <div class="d-flex align-items-center gap-2 mb-3">
                     <div class="bg-indigo text-white rounded-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
@@ -77,7 +75,6 @@
                 <p class="text-secondary small leading-relaxed mb-4">
                     Mitra teknologi terpercaya dalam merancang dan mengimplementasikan solusi ekosistem digital ujung ke ujung (end-to-end) dengan standar kualitas terbaik.
                 </p>
-                <!-- Sosmed dinamis dari database (jika tersedia, fallback ke default) -->
                 <div class="d-flex gap-2">
                     <a href="https://linkedin.com/in/{{ $kontak->linkedin ?? '#' }}" target="_blank" class="btn btn-outline-secondary btn-sm rounded-circle d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;" title="LinkedIn">
                         <i class="fa-brands fa-linkedin-in"></i>
@@ -91,7 +88,6 @@
                 </div>
             </div>
 
-            <!-- KOLOM 2: NAVIGASI CEPAT -->
             <div class="col-lg-2 col-md-6">
                 <h6 class="fw-bold text-white mb-3 text-uppercase tracking-wider fs-6">Navigasi</h6>
                 <ul class="list-unstyled d-flex flex-column gap-2 small">
@@ -104,7 +100,6 @@
                 </ul>
             </div>
 
-            <!-- KOLOM 3: LAYANAN UTAMA (Dinamis dari Database Tabel Produk) -->
             <div class="col-lg-3 col-md-6">
                 <h6 class="fw-bold text-white mb-3 text-uppercase tracking-wider fs-6">Layanan Utama</h6>
                 <ul class="list-unstyled d-flex flex-column gap-2 small">
@@ -134,22 +129,13 @@
                     </li>
                 </ul>
             </div>
-
         </div>
 
         <hr class="border-secondary opacity-25 my-4">
-
-        <!-- BOTTOM BAR: COPYRIGHT & ADMIN LINK TERSEMBUNYI -->
         <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-3 small text-secondary">
             <p class="mb-0">&copy; {{ date('Y') }} {{ $profil->nama_perusahaan ?? 'Belum ada nama perusahaan' }}. All rights reserved.</p>
 
             <div class="d-flex align-items-center gap-3">
-                <a href="#" class="text-secondary text-decoration-none hover-white transition-all">Privasi</a>
-                <span class="text-muted">•</span>
-                <a href="#" class="text-secondary text-decoration-none hover-white transition-all">Syarat & Ketentuan</a>
-                <span class="text-muted">•</span>
-                
-                <!-- TAUTAN LOGIN ADMIN -->
                 <a href="{{ route('login') }}" class="text-secondary text-decoration-none hover-indigo transition-all opacity-75" title="Akses Internal Staff">
                     <i class="fa-solid fa-user-lock me-1 small"></i> Admin Portal
                 </a>

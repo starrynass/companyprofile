@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Artikel;
 use App\Models\Produk;
 use App\Models\Profil;
 use App\Models\Galeri;
+use App\Models\Pesan;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -18,7 +20,8 @@ class AdminController extends Controller
         $totalArtikel = Artikel::count();
         $totalGaleri = Galeri::count();
         $profil = Profil::first();
+        $unreadPesan = Pesan::where('is_read', 0)->count();
 
-        return view('admin.dashboard', compact('totalProduk', 'totalArtikel', 'totalGaleri', 'profil'));
+        return view('admin.dashboard', compact('totalProduk', 'totalArtikel', 'totalGaleri', 'profil', 'unreadPesan'));
     }
 }

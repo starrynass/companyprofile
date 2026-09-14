@@ -145,9 +145,8 @@
                             </div>
                         </div>
                         
-                        <!-- Form Filter & Pencarian Pesan -->
-                        <form action="" method="GET" class="d-flex gap-2 w-100 w-md-auto">
-                            <select name="status" class="form-select form-select-sm rounded-pill px-3 shadow-sm border-light-subtle" onchange="this.form.submit()">
+                        <form action="{{ url()->current() }}#pesan-pane" method="GET" class="d-flex gap-2 w-100 w-md-auto">
+                            <select name="status" class="form-select form-select-sm rounded-pill px-3 shadow-sm border-light-subtle">
                                 <option value="">Semua Status</option>
                                 <option value="unread" {{ request('status') == 'unread' ? 'selected' : '' }}>Belum Dibaca</option>
                                 <option value="read" {{ request('status') == 'read' ? 'selected' : '' }}>Sudah Dibaca</option>

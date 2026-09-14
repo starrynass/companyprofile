@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- HERO SECTION -->
 <section id="home" class="min-vh-100 d-flex align-items-center position-relative text-white"
          style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.35) 100%), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;">
 
@@ -25,8 +24,8 @@
                     {{ $profil->nama_perusahaan ?? 'Belum ada nama perusahaan' }} menyediakan layanan pengembangan software, infrastruktur jaringan, dan konsultasi IT secara profesional.
                 </p>
                 <div class="d-flex gap-3 flex-wrap">
-                    <a href="#produk" class="btn btn-indigo btn-lg px-4 shadow-lg fw-semibold btn-hover-grow">
-                        <i class="fa-solid fa-layer-group me-2"></i> Lihat Layanan
+                    <a href="#produk" class="btn btn-indigo btn-lg px-4 shadow-lg fw-semibold btn-hover-grow hover-layer-group">
+                        <i class="fa-solid fa-layer-group me-2 transition-all"></i> Lihat Layanan
                     </a>
                     <a href="#kontak" class="btn btn-outline-light btn-lg px-4 fw-semibold backdrop-blur btn-hover-grow">
                         Hubungi Kami

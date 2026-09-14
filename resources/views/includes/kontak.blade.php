@@ -17,7 +17,6 @@
         </p>
     </div>
 
-    <!-- Gelombang SVG Smooth -->
     <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 2;">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: 100%; height: 45px; fill: #f8fafc;">
             <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,120 L0,120 Z"></path>
@@ -25,17 +24,14 @@
     </div>
 </section>
 
-<!-- MAIN SECTION DETAIL & FORM -->
 <div class="position-relative bg-slate-50 py-5 overflow-hidden">
     
     <div class="container position-relative py-4" style="z-index: 1;">
         <div class="row g-4 align-items-stretch">
             
-            <!-- INFORMASI KONTAK & SOSMED LENGKAP -->
             <div class="col-lg-5" data-aos="fade-right" data-aos-delay="100">
                 <div class="card border-0 shadow-lg rounded-4 p-4 p-md-4 h-100 bg-white d-flex flex-column justify-content-between">
                     <div>
-                        <!-- Header Kantor Pusat (Icon Bulat & Animasi Hover) -->
                         <div class="d-flex align-items-center mb-4 p-2 rounded-3">
                             <div class="icon-circle bg-indigo text-white rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0 shadow-sm" style="width: 55px; height: 55px;">
                                 <i class="fa-solid fa-building-shield fs-5"></i>
@@ -46,7 +42,6 @@
                             </div>
                         </div>
                         
-                        <!-- Alamat (Icon Bulat) -->
                         <div class="d-flex align-items-start mb-3 p-3 rounded-3 contact-item-hover">
                             <div class="icon-circle bg-indigo text-white rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0 shadow-sm" style="width: 45px; height: 45px;">
                                 <i class="fa-solid fa-location-dot fs-6"></i>
@@ -57,7 +52,6 @@
                             </div>
                         </div>
 
-                        <!-- Telepon (Icon Bulat) -->
                         <div class="d-flex align-items-start mb-3 p-3 rounded-3 contact-item-hover">
                             <div class="icon-circle bg-indigo text-white rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0 shadow-sm" style="width: 45px; height: 45px;">
                                 <i class="fa-solid fa-phone fs-6"></i>
@@ -68,7 +62,6 @@
                             </div>
                         </div>
 
-                        <!-- Email (Icon Bulat) -->
                         <div class="d-flex align-items-start mb-4 p-3 rounded-3 contact-item-hover">
                             <div class="icon-circle bg-indigo text-white rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0 shadow-sm" style="width: 45px; height: 45px;">
                                 <i class="fa-solid fa-envelope fs-6"></i>
@@ -80,12 +73,10 @@
                         </div>
                     </div>
 
-                    <!-- TOMBOL SOSIAL MEDIA (Bulat & Animasi Hover) -->
                     <div class="mt-2 pt-3 border-top">
                         <p class="fw-bold text-dark small mb-3"><i class="fa-solid fa-bolt text-warning me-1"></i> Terhubung dengan Kami:</p>
                         
                         <div class="d-flex justify-content-around align-items-center text-center px-2">
-                            <!-- WhatsApp -->
                             <a href="https://wa.me/{{ $kontak->whatsapp ?? '6282112345678' }}" target="_blank" class="social-icon-btn text-success" title="WhatsApp">
                                 <div class="rounded-circle shadow-sm d-flex align-items-center justify-content-center bg-success-subtle mx-auto mb-1" style="width: 50px; height: 50px;">
                                     <i class="fa-brands fa-whatsapp fs-4 text-success"></i>

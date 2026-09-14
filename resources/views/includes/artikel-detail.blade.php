@@ -142,19 +142,5 @@
     </div>
 </div>
 
-<!-- Tambahan Style CSS Khusus Tombol Share -->
-<style>
-    .share-btn-social {
-        width: 38px !important;
-        height: 38px !important;
-        min-width: 38px !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        transition: all 0.2s ease-in-out;
-    }
-    .share-btn-social:hover {
-        transform: translateY(-2px);
-    }
-</style>
+
 @endsection

@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Admin Dashboard - PT Digital Solusi Nusantara')</title>
     
-    <!-- Bootstrap 5 CSS & FontAwesome -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- AOS CSS (Disamakan dengan layout app) -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <!-- Custom Style Admin -->
+    <script src="{{ asset('js/script.js') }}"></script>
+    @stack('scripts')
     <link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">
 </head>
 <body class="d-flex flex-column min-vh-100 bg-light">
@@ -34,12 +33,6 @@
                     <a href="{{ route('admin.dashboard') }}" class="sidebar-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" title="Dashboard">
                         <i class="fa-solid fa-chart-pie"></i>
                         <span>Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="sidebar-link {{ request()->is('admin/home*') ? 'active' : '' }}" title="Kelola Home">
-                        <i class="fa-solid fa-house"></i>
-                        <span>Kelola Home</span>
                     </a>
                 </li>
                 <li>

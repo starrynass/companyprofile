@@ -8,9 +8,7 @@
     <p class="text-muted small">Ringkasan data konten website profil perusahaan Anda saat ini.</p>
 </div>
 
-<!-- GRID CARDS RINGKASAN DATA DINAMIS DENGAN ANIMASI HOVER -->
 <div class="row g-3 mb-4">
-    <!-- Card Total Produk -->
     <div class="col-xl-3 col-md-6">
         <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100 hover-lift hover-rotate-icon position-relative overflow-hidden">
             <div class="d-flex align-items-center justify-content-between">
@@ -25,7 +23,6 @@
         </div>
     </div>
 
-    <!-- Card Status Profil -->
     <div class="col-xl-3 col-md-6">
         <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100 hover-lift hover-rotate-icon position-relative overflow-hidden">
             <div class="d-flex align-items-center justify-content-between">
@@ -57,7 +54,6 @@
         </div>
     </div>
 
-    <!-- Card Total Foto Galeri -->
     <div class="col-xl-3 col-md-6">
         <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100 hover-lift hover-rotate-icon position-relative overflow-hidden">
             <div class="d-flex align-items-center justify-content-between">
@@ -73,7 +69,43 @@
     </div>
 </div>
 
-<!-- Boks Sambutan dengan Efek Interaktif -->
+<!-- QUICK ACTIONS (AKSI CEPAT) -->
+<div class="row g-3 mb-4">
+    <div class="col-md-4">
+        <a href="{{ route('admin.produk-admin.store') }}" class="card border-0 shadow-sm rounded-4 p-3 bg-white text-decoration-none hover-lift h-100 d-flex flex-row align-items-center gap-3">
+            <div class="bg-indigo-subtle text-indigo rounded-3 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; flex-shrink: 0;">
+                <i class="fa-solid fa-plus fs-5"></i>
+            </div>
+            <div>
+                <h6 class="fw-bold text-dark mb-1">Tambah Produk</h6>
+                <p class="text-muted small mb-0">Input produk baru ke katalog</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="{{ route('admin.artikel-admin.store') }}" class="card border-0 shadow-sm rounded-4 p-3 bg-white text-decoration-none hover-lift h-100 d-flex flex-row align-items-center gap-3">
+            <div class="bg-indigo-subtle text-indigo rounded-3 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; flex-shrink: 0;">
+                <i class="fa-solid fa-pen-nib fs-5"></i>
+            </div>
+            <div>
+                <h6 class="fw-bold text-dark mb-1">Tulis Artikel</h6>
+                <p class="text-muted small mb-0">Publikasikan informasi terbaru</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="{{ route('admin.kontak-pesan-admin') }}" class="card border-0 shadow-sm rounded-4 p-3 bg-white text-decoration-none hover-lift h-100 d-flex flex-row align-items-center gap-3">
+            <div class="bg-indigo-subtle text-indigo rounded-3 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; flex-shrink: 0;">
+                <i class="fa-solid fa-envelope fs-5"></i>
+            </div>
+            <div>
+                <h6 class="fw-bold text-dark mb-1">Cek Pesan Masuk</h6>
+                <p class="text-muted small mb-0">Kelola pesan dari pengunjung</p>
+            </div>
+        </a>
+    </div>
+</div>
+
 <div class="card border-0 shadow-sm rounded-4 p-4 bg-white hover-lift">
     <div class="d-flex align-items-center gap-3 mb-2">
         <div class="bg-indigo-subtle text-indigo rounded-3 d-flex align-items-center justify-content-center floating-element" style="width: 40px; height: 40px;">

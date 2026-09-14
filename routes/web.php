@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\GaleriController;
@@ -11,6 +10,7 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\PesanController;
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProfilController;
 use App\Http\Controllers\Admin\AdminProdukController;
 use App\Http\Controllers\Admin\AdminArtikelController;
@@ -18,6 +18,17 @@ use App\Http\Controllers\Admin\AdminGaleriController;
 use App\Http\Controllers\Admin\AdminKontakPesanController;
 
 Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+
+Route::get('/produk', [App\Http\Controllers\ProdukController::class, 'index'])->name('produk');
+Route::get('/profil', [App\Http\Controllers\ProfilController::class, 'index'])->name('profil');
+Route::get('/galeri', [App\Http\Controllers\GaleriController::class, 'index'])->name('galeri');
+
+Route::get('/artikel', [ArtikelController::class, 'index'])->name('artikel');
+Route::get('/artikel/{id}', [ArtikelController::class, 'show'])->name('artikel.show');
+
+Route::get('/kontak', [App\Http\Controllers\KontakController::class, 'index'])->name('kontak');
+Route::post('/pesan/kirim', [PesanController::class, 'store'])->name('pesan.store');
+
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -59,16 +70,3 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::patch('/pesan/{id}/read', [AdminKontakPesanController::class, 'markAsRead'])->name('pesan-admin.read');
     Route::delete('/pesan/{id}', [AdminKontakPesanController::class, 'destroyPesan'])->name('pesan-admin.destroy');
 });
-
-Route::get('/produk', [App\Http\Controllers\ProdukController::class, 'index'])->name('produk');
-Route::get('/profil', [App\Http\Controllers\ProfilController::class, 'index'])->name('profil');
-Route::get('/galeri', [App\Http\Controllers\GaleriController::class, 'index'])->name('galeri');
-
-Route::get('/kontak', [App\Http\Controllers\KontakController::class, 'index'])->name('kontak');
-Route::post('/pesan/kirim', [PesanController::class, 'store'])->name('pesan.store');
-
-
-Route::get('/artikel', [ArtikelController::class, 'index'])->name('artikel');
-
-// Route untuk Halaman Detail Artikel (Baca Selengkapnya)
-Route::get('/artikel/{id}', [ArtikelController::class, 'show'])->name('artikel.show');
