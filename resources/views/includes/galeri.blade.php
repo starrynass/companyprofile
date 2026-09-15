@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- HERO SECTION GALERI -->
 <section class="position-relative text-white py-5 d-flex align-items-center"
          style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 27, 75, 0.90) 100%), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; min-height: 40vh;">
     
@@ -104,43 +103,4 @@
     </div>
 @endforeach
 
-<!-- STYLING CSS -->
-<style>
-    .card-galeri-item {
-        transition: all 0.3s ease-in-out;
-    }
-    .card-galeri-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 1rem 2rem rgba(99, 102, 241, 0.12) !important;
-    }
-    .card-galeri-item:hover .hover-zoom {
-        transform: scale(1.08);
-    }
-    .transition-transform {
-        transition: transform 0.5s ease;
-    }
-
-    /* Styling Pagination Minimalis */
-    .pagination {
-        gap: 6px;
-    }
-    .page-item .page-link {
-        border-radius: 8px !important;
-        padding: 8px 14px;
-        font-weight: 600;
-        color: #4f46e5;
-        border: 1px solid #e2e8f0;
-        background-color: #ffffff;
-        transition: all 0.2s ease;
-    }
-    .page-item.active .page-link {
-        background-color: #4f46e5;
-        border-color: #4f46e5;
-        color: #ffffff;
-    }
-    .page-item .page-link:hover {
-        background-color: #f1f5f9;
-        color: #4f46e5;
-    }
-</style>
 @endsection

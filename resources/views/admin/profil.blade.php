@@ -149,14 +149,10 @@
                                 <p class="text-muted small mb-0">Rekam jejak perjalanan perusahaan serta sambutan dari pimpinan utama.</p>
                             </div>
                         </div>
-
-                        <!-- Sejarah Singkat -->
                         <div class="mb-3">
                             <label for="sejarah" class="form-label fw-semibold text-dark">Sejarah Singkat</label>
                             <textarea class="form-control rounded-3 p-3 shadow-sm border-light-subtle" id="sejarah" name="sejarah" rows="4" placeholder="Ceritakan sejarah berdirinya perusahaan...">{{ old('sejarah', $profil->sejarah ?? '') }}</textarea>
                         </div>
-
-                        <!-- Gambar Sejarah -->
                         <div class="mb-4">
                             <label for="gambar_sejarah" class="form-label fw-semibold text-dark">Gambar Sejarah</label>
                             @if(!empty($profil->gambar_sejarah))
@@ -173,7 +169,6 @@
 
                         <hr class="text-muted opacity-25 my-4">
 
-                        <!-- Nama CEO -->
                         <div class="mb-3">
                             <label for="nama_ceo" class="form-label fw-semibold text-dark">Nama Lengkap CEO</label>
                             <input type="text" class="form-control rounded-3 p-3 shadow-sm border-light-subtle @error('nama_ceo') is-invalid @enderror" id="nama_ceo" name="nama_ceo" value="{{ old('nama_ceo', $profil->nama_ceo ?? '') }}" placeholder="Contoh: Bpk. John Doe, M.Kom">
@@ -182,7 +177,6 @@
                             @enderror
                         </div>
 
-                        <!-- Jabatan CEO -->
                         <div class="mb-3">
                             <label for="jabatan_ceo" class="form-label fw-semibold text-dark">Jabatan CEO</label>
                             <input type="text" class="form-control rounded-3 p-3 shadow-sm border-light-subtle @error('jabatan_ceo') is-invalid @enderror" id="jabatan_ceo" name="jabatan_ceo" value="{{ old('jabatan_ceo', $profil->jabatan_ceo ?? '') }}" placeholder="Contoh: Chief Executive Officer & Founder">
@@ -191,13 +185,11 @@
                             @enderror
                         </div>
 
-                        <!-- Sambutan / Pesan CEO -->
                         <div class="mb-3">
                             <label for="sambutan_ceo" class="form-label fw-semibold text-dark">Pesan / Sambutan CEO</label>
                             <textarea class="form-control rounded-3 p-3 shadow-sm border-light-subtle" id="sambutan_ceo" name="sambutan_ceo" rows="4" placeholder="Sambutan atau pesan dari CEO...">{{ old('sambutan_ceo', $profil->sambutan_ceo ?? '') }}</textarea>
                         </div>
 
-                        <!-- Foto CEO -->
                         <div class="mb-3">
                             <label for="foto_ceo" class="form-label fw-semibold text-dark">Foto CEO</label>
                             @if(!empty($profil->foto_ceo))
@@ -234,7 +226,6 @@
                             <label class="form-label fw-semibold text-dark mb-0">Daftar Keunggulan Kompetitif</label>
                         </div>
 
-                        <!-- Looping Data Keunggulan dari Database -->
                         <div id="keunggulan-wrapper">
                             @isset($profil)
                                 @foreach($profil->keunggulan as $index => $item)
@@ -260,10 +251,8 @@
                             @endisset
                         </div>
                     </div>
-
                 </div>
 
-                <!-- Tombol Simpan Perubahan -->
                 <div class="mt-4 pt-4 border-top d-flex justify-content-end">
                     <button type="submit" class="btn btn-indigo rounded-pill px-5 py-2.5 fw-semibold shadow-sm hover-lift d-inline-flex align-items-center gap-2">
                         <i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan Profil

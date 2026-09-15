@@ -16,10 +16,8 @@
 </head>
 <body class="d-flex flex-column min-vh-100 bg-light">
 
-    <!-- SIDEBAR KIRI -->
     <aside class="sidebar d-flex flex-column justify-content-between shadow" data-aos="fade-right">
         <div>
-            <!-- Brand Logo -->
             <div class="sidebar-brand d-flex align-items-center gap-2">
                 <div class="bg-indigo text-white rounded-3 d-flex align-items-center justify-content-center flex-shrink-0 shadow-sm" style="width: 36px; height: 36px;">
                     <i class="fa-solid fa-code"></i>
@@ -27,7 +25,6 @@
                 <span class="text-truncate">Admin Panel</span>
             </div>
 
-            <!-- Menu Navigasi Sidebar Lengkap -->
             <ul class="sidebar-menu">
                 <li>
                     <a href="{{ route('admin.dashboard') }}" class="sidebar-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" title="Dashboard">
@@ -68,7 +65,6 @@
             </ul>
         </div>
 
-        <!-- Tombol Logout di Bagian Bawah Sidebar -->
         <div class="p-3 border-top border-secondary border-opacity-25 bg-dark">
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
@@ -80,10 +76,8 @@
         </div>
     </aside>
 
-    <!-- KONTEN UTAMA (SEBELAH KANAN SIDEBAR) -->
     <div class="main-wrapper">
         
-        <!-- Topbar Atas dengan Toggle Button -->
         <header class="topbar">
             <div class="d-flex align-items-center gap-3">
                 <button class="btn btn-light border-0 rounded-3 text-secondary shadow-sm" id="sidebarToggle" style="width: 40px; height: 40px;" title="Buka/Tutup Sidebar">
@@ -102,12 +96,10 @@
             </div>
         </header>
 
-        <!-- Area Isi Halaman Dashboard -->
         <main class="p-4 flex-grow-1">
             @yield('content')
         </main>
 
-        <!-- Footer Admin (Dikonsepsikan selaras dengan footer app) -->
         <footer class="bg-white border-top py-3 px-4 text-center text-muted small mt-auto">
             <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
                 <p class="mb-0">&copy; {{ date('Y') }} <strong>{{ $profil->nama_perusahaan ?? 'Belum ada nama perusahaan' }}</strong>. All rights reserved.</p>
@@ -116,18 +108,15 @@
         </footer>
     </div>
 
-    <!-- Script Bootstrap, AOS, & Interaksi Toggle Sidebar -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // Inisialisasi AOS Animation
         AOS.init({
             duration: 800,
             once: true,
             offset: 120
         });
 
-        // Toggle Sidebar Script
         document.getElementById('sidebarToggle').addEventListener('click', function () {
             document.body.classList.toggle('sidebar-toggled');
         });

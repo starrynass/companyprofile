@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- HERO SECTION PAGE PRODUK -->
 <section class="position-relative text-white py-5 d-flex align-items-center"
          style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.90) 0%, rgba(30, 27, 75, 0.85) 100%), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; min-height: 45vh;">
     
@@ -24,7 +23,6 @@
     </div>
 </section>
 
-<!-- MAIN CONTENT PRODUK (FULL DETAIL CARD) -->
 <div class="position-relative bg-slate-50 py-5" style="overflow-x: clip;">
     <div class="container py-4">
         
@@ -49,7 +47,6 @@
                         @endif
 
                         <div class="card-body p-4 d-flex flex-column">
-                            <!-- Visual Ikon / Gambar -->
                             <div class="mb-3">
                                 @if(str_contains($item->gambar, 'fa-'))
                                     <div class="icon-box-animate text-indigo bg-indigo-subtle rounded-4 p-3 d-inline-flex align-items-center justify-content-center" style="width: 65px; height: 65px;">
@@ -67,12 +64,10 @@
                             <span class="text-indigo fw-bold small mb-1 text-uppercase tracking-wider">{{ $item->kategori }}</span>
                             <h3 class="fw-bold text-dark mb-3 fs-4">{{ $item->nama_produk }}</h3>
                             
-                            <!-- Penjelasan / Deskripsi Lengkap -->
                             <div class="text-secondary small mb-4 lh-relaxed">
                                 {!! nl2br(e($item->deskripsi)) !!}
                             </div>
 
-                            <!-- Harga Produk -->
                             <div class="p-3 bg-slate-subtle rounded-3 mb-4 mt-auto">
                                 <span class="d-block text-muted small mb-1">Estimasi Biaya:</span>
                                 <div class="d-flex align-items-baseline">
@@ -84,7 +79,6 @@
                                 </div>
                             </div>
 
-                            <!-- Rincian Fitur / Cakupan Kerjanya -->
                             @if(!empty($item->fitur))
                                 <div class="mb-4">
                                     <h6 class="fw-bold text-dark small mb-2">Cakupan Fitur Layanan:</h6>
@@ -99,7 +93,6 @@
                                 </div>
                             @endif
 
-                            <!-- Tombol Aksi Konsultasi -->
                             <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20layanan%20{{ urlencode($item->nama_produk) }}" 
                                target="_blank" 
                                class="btn btn-indigo w-100 rounded-3 fw-semibold py-2 d-flex align-items-center justify-content-center gap-2">
@@ -118,19 +111,4 @@
     </div>
 </div>
 
-<!-- SCRIPT OTOMATIS HIGHLIGHT & SMOOTH SCROLL DARI DASHBOARD -->
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        if (window.location.hash) {
-            const targetId = window.location.hash.substring(1);
-            const targetElement = document.getElementById(targetId);
-            
-            if (targetElement) {
-                setTimeout(() => {
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 300);
-            }
-        }
-    });
-</script>
 @endsection

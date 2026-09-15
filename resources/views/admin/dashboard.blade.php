@@ -39,7 +39,6 @@
         </div>
     </div>
 
-    <!-- Card Total Artikel -->
     <div class="col-xl-3 col-md-6">
         <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100 hover-lift hover-rotate-icon position-relative overflow-hidden">
             <div class="d-flex align-items-center justify-content-between">
@@ -69,7 +68,6 @@
     </div>
 </div>
 
-<!-- QUICK ACTIONS (AKSI CEPAT) -->
 <div class="row g-3 mb-4">
     <div class="col-md-4">
         <a href="{{ route('admin.produk-admin.store') }}" class="card border-0 shadow-sm rounded-4 p-3 bg-white text-decoration-none hover-lift h-100 d-flex flex-row align-items-center gap-3">
@@ -111,7 +109,7 @@
         <div class="bg-indigo-subtle text-indigo rounded-3 d-flex align-items-center justify-content-center floating-element" style="width: 40px; height: 40px;">
             <i class="fa-solid fa-laptop-code fs-5 text-indigo"></i>
         </div>
-        <h5 class="fw-bold text-dark mb-0">Selamat Datang di Admin CMS Portal!</h5>
+        <h5 class="fw-bold text-dark mb-0">Selamat Datang di Dashboard Admin!</h5>
     </div>
     <p class="text-secondary small mb-3">Gunakan menu navigasi di sebelah kiri untuk mengelola data Profil, Produk, Artikel, dan Galeri secara real-time dengan standar kualitas terbaik.</p>
     <div>

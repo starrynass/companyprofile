@@ -4,7 +4,6 @@
 
 @section('content')
 <div class="container-fluid px-0">
-    <!-- Header Section -->
     <div class="mb-5 d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 bg-white p-4 rounded-4 shadow-sm border border-light">
         <div>
             <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-indigo-subtle text-indigo mb-2" style="background-color: #e0e7ff; color: #4338ca; font-size: 0.85rem; font-weight: 600;">
@@ -13,17 +12,12 @@
             <h3 class="fw-bold text-dark mb-1" style="letter-spacing: -0.5px;">Kelola Produk & Layanan</h3>
             <p class="text-muted mb-0 small">Atur, ubah, dan perbarui daftar layanan atau produk perusahaan dengan mudah.</p>
         </div>
-        <!-- Tombol Tambah Produk dengan Efek Hover -->
-        <button type="button" class="btn text-white px-4 py-2.5 rounded-pill shadow-sm d-inline-flex align-items-center gap-2 fw-semibold transition-all hover-scale" 
-                style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); border: none; transition: all 0.3s ease;"
-                data-bs-toggle="modal" data-bs-target="#tambahProdukModal"
-                onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(99, 102, 241, 0.35)';"
-                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+        <button type="button" class="btn text-white px-4 py-2.5 rounded-pill shadow-sm d-inline-flex align-items-center gap-2 fw-semibold transition-all hover-scale btn-indigo" 
+                data-bs-toggle="modal" data-bs-target="#tambahProdukModal">
             <i class="fa-solid fa-plus-circle fs-6"></i> Tambah Produk Baru
         </button>
     </div>
 
-    <!-- Notifikasi Berhasil -->
     @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show rounded-4 shadow-sm border-0 mb-4 p-4 text-white d-flex align-items-center justify-content-between" 
              style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);" role="alert">
@@ -40,7 +34,6 @@
         </div>
     @endif
 
-    <!-- Tabel Daftar Produk -->
     <div class="card border-0 shadow-sm rounded-4 bg-white overflow-hidden">
         <div class="card-header bg-transparent border-0 pt-4 px-4 pb-0 d-flex justify-content-between align-items-center">
             <h5 class="fw-bold text-dark mb-0"><i class="fa-solid fa-boxes-stacked text-indigo me-2" style="color: #6366f1;"></i>Daftar Layanan Tersedia</h5>
@@ -117,7 +110,6 @@
                                 </td>
                             </tr>
 
-                            <!-- MODAL EDIT PRODUK -->
                             <div class="modal fade" id="editProdukModal{{ $item->id }}" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog modal-lg modal-dialog-centered">
                                     <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
@@ -196,7 +188,6 @@
     </div>
 </div>
 
-<!-- MODAL TAMBAH PRODUK -->
 <div class="modal fade" id="tambahProdukModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">

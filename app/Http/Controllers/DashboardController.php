@@ -16,7 +16,7 @@ class DashboardController extends Controller
         $artikels = Artikel::latest()->take(3)->get();
         $produks = Produk::where('is_populer', 1)->latest()->take(2)->get();
         $profils = Profil::first();
-        $galeris = Galeri::latest()->take(5)->get();
+        $galeris = Galeri::latest()->take(8)->get();
         $kontak = Kontak::first();
 
         return view('includes.index', compact('artikels', 'produks', 'profils', 'galeris', 'kontak'));

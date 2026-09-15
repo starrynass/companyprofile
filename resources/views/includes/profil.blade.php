@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- HERO SECTION PAGE PROFIL -->
 <section class="position-relative text-white py-5 d-flex align-items-center"
          style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.90) 0%, rgba(30, 27, 75, 0.85) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; min-height: 45vh;">
     
@@ -17,7 +16,6 @@
         </p>
     </div>
 
-    <!-- Gelombang SVG Smooth -->
     <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 2;" data-aos="fade-up" data-aos-duration="800" >
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: 100%; height: 45px; fill: #f8fafc;">
             <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,120 L0,120 Z"></path>
@@ -43,7 +41,6 @@
     </div>
     <div class="position-relative" style="z-index: 1;">
 
-        <!-- SEJARAH PERUSAHAAN -->
         <section class="py-5">
             <div class="container py-4">
                 <div class="row align-items-center gy-5">
@@ -84,7 +81,6 @@
             </div>
         </section>
 
-        <!-- SAMBUTAN & PROFIL CEO -->
         <section class="py-5 border-top border-bottom">
             <div class="container py-4">
                 <div class="text-center mb-5" data-aos="fade-up">
@@ -139,7 +135,6 @@
             </div>
         </section>
 
-        <!-- VISI & MISI -->
         <section class="py-5">
             <div class="container py-4">
                 <div class="text-center mb-5" data-aos="fade-up">
@@ -179,7 +174,6 @@
             </div>
         </section>
 
-        <!-- NILAI PERUSAHAAN & CHART DIAGRAM -->
         <section class="py-5 border-top border-bottom">
             <div class="container py-4">
                 <div class="text-center mb-5" data-aos="fade-up">
@@ -188,7 +182,6 @@
                 </div>
 
                 <div class="row gy-4 align-items-center">
-                    <!-- Deskripsi Nilai Perusahaan -->
                     <div class="col-lg-6" data-aos="fade-right">
                         <div class="p-4 p-lg-5 bg-white rounded-4 border shadow-sm h-100">
                             <div class="d-flex align-items-center gap-3 mb-3">
@@ -207,12 +200,10 @@
                         </div>
                     </div>
 
-                    <!-- 2 Metrik / Chart Diagram Bars -->
                     <div class="col-lg-6" data-aos="fade-left">
                         <div class="p-4 p-lg-5 bg-white rounded-4 border shadow-sm">
                             <h4 class="fw-bold text-dark mb-4">Pencapaian & Standardisasi</h4>
 
-                            <!-- Chart Diagram 1 -->
                             <div class="mb-4">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
                                     <span class="fw-semibold text-dark fs-6">
@@ -232,7 +223,6 @@
                                 </div>
                             </div>
 
-                            <!-- Chart Diagram 2 -->
                             <div class="mb-2">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
                                     <span class="fw-semibold text-dark fs-6">
@@ -257,7 +247,6 @@
             </div>
         </section>
 
-        <!-- KEUNGGULAN PERUSAHAAN (HASMANY RELATIONSHIP) -->
         <section class="py-5">
             <div class="container py-4">
                 <div class="text-center mb-5" data-aos="fade-up">

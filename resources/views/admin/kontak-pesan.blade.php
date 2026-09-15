@@ -3,7 +3,6 @@
 @section('title', 'Kelola Kontak & Pesan - Admin Panel')
 
 @section('content')
-<!-- HERO SECTION PAGE ADMIN KONTAK & PESAN -->
 <div class="mb-4 d-flex align-items-center justify-content-between">
     <div>
         <h3 class="fw-bold text-dark mb-1">Kelola Kontak & Pesan</h3>
@@ -11,7 +10,6 @@
     </div>
 </div>
 
-<!-- Notifikasi Berhasil -->
 @if(session('success'))
     <div class="alert alert-success alert-dismissible fade show rounded-4 shadow-sm border-0 mb-4" role="alert">
         <div class="d-flex align-items-center gap-2">
@@ -23,7 +21,6 @@
 @endif
 
 <div class="row">
-    <!-- Kolom Navigasi Tab Samping / Pill Tabs Modern -->
     <div class="col-lg-3 mb-4">
         <div class="card border-0 shadow-sm rounded-4 p-3 bg-white sticky-top" style="top: 20px;">
             <div class="d-flex align-items-center gap-2 px-3 py-2 mb-3 border-bottom">
@@ -58,11 +55,9 @@
         </div>
     </div>
 
-    <!-- Kolom Konten Form Tab -->
     <div class="col-lg-9">
         <div class="tab-content" id="kontakPesanTabContent">
             
-            <!-- TAB 1: FORM EDIT KONTAK PERUSAHAAN (Singleton Pattern) -->
             <div class="tab-pane fade show active" id="kontak-pane" role="tabpanel" aria-labelledby="kontak-tab">
                 <div class="card border-0 shadow-sm rounded-4 p-4 p-lg-5 bg-white mb-4">
                     <div class="d-flex align-items-center gap-3 mb-4 pb-3 border-bottom">
@@ -83,7 +78,6 @@
                             <label class="form-label fw-semibold text-dark">Alamat Lengkap</label>
                             <input type="text" name="alamat" class="form-control rounded-3 p-3 shadow-sm border-light-subtle" value="{{ $kontak->alamat ?? '' }}" placeholder="Contoh: Jl. Soekarno Hatta No. 123, Bandung" required>
                         </div>
-
                         <div class="row g-3">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-semibold text-dark">Telepon Perusahaan</label>
@@ -94,7 +88,6 @@
                                 <input type="text" name="whatsapp" class="form-control rounded-3 p-3 shadow-sm border-light-subtle" value="{{ $kontak->whatsapp ?? '' }}" placeholder="Contoh: 6281234567890" required>
                             </div>
                         </div>
-
                         <div class="row g-3">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-semibold text-dark">Email Resmi</label>
@@ -105,7 +98,6 @@
                                 <input type="text" name="instagram" class="form-control rounded-3 p-3 shadow-sm border-light-subtle" value="{{ $kontak->instagram ?? '' }}" placeholder="https://instagram.com/namaperusahaan">
                             </div>
                         </div>
-
                         <div class="row g-3">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-semibold text-dark">X / Twitter URL</label>
@@ -116,7 +108,6 @@
                                 <input type="text" name="facebook" class="form-control rounded-3 p-3 shadow-sm border-light-subtle" value="{{ $kontak->facebook ?? '' }}" placeholder="https://facebook.com/namaperusahaan">
                             </div>
                         </div>
-
                         <div class="mb-4">
                             <label class="form-label fw-semibold text-dark">Google Maps Embed (Iframe HTML)</label>
                             <textarea name="google_maps_embed" class="form-control rounded-3 p-3 shadow-sm border-light-subtle" rows="3" placeholder="Tempelkan kode iframe Google Maps di sini..." required>{{ $kontak->google_maps_embed ?? '' }}</textarea>
@@ -131,7 +122,6 @@
                 </div>
             </div>
 
-            <!-- TAB 2: PESAN MASUK (READ-ONLY & FILTER) -->
             <div class="tab-pane fade" id="pesan-pane" role="tabpanel" aria-labelledby="pesan-tab">
                 <div class="card border-0 shadow-sm rounded-4 p-4 p-lg-5 bg-white mb-4">
                     <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4 pb-3 border-bottom gap-3">
@@ -184,11 +174,9 @@
                                         </td>
                                         <td class="text-center">
                                             <div class="d-flex justify-content-center gap-1">
-                                                <!-- Tombol Lihat Detail -->
                                                 <button type="button" class="btn btn-sm btn-light border rounded-circle text-indigo shadow-sm" style="width: 32px; height: 32px;" data-bs-toggle="modal" data-bs-target="#detailPesanModal{{ $pesan->id }}" title="Lihat Pesan">
                                                     <i class="fa-solid fa-eye fa-xs"></i>
                                                 </button>
-                                                <!-- Tombol Hapus Pesan -->
                                                 <form action="{{ route('admin.pesan-admin.destroy', $pesan->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus pesan ini?')">
                                                     @csrf
                                                     @method('DELETE')
@@ -200,7 +188,6 @@
                                         </td>
                                     </tr>
 
-                                    <!-- Modal Detail Pesan -->
                                     <div class="modal fade" id="detailPesanModal{{ $pesan->id }}" tabindex="-1" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content rounded-4 border-0 shadow-lg">
@@ -253,7 +240,6 @@
                         </table>
                     </div>
 
-                    <!-- Pagination Pesan -->
                     <div class="mt-4 d-flex justify-content-center">
                         {{ $pesans->links() }}
                     </div>

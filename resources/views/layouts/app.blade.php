@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- 1. AOS CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <script src="{{ asset('js/script.js') }}"></script>
@@ -23,7 +22,7 @@
       <div class="container">
         <a class="navbar-brand d-flex align-item-center" href="#home">
           <i class="fa-solid fa-laptop-code me-2 fs-3 text-indigo"></i>
-          <span>{{ $profil->nama_perusahaan ?? 'Belum ada nama perusahaan' }}</span>
+          <span>{{ $profil->nama_perusahaan ?? 'PT Digital Solusi Nusantara' }}</span>
         </a>
 
         <button class="navbar-toggler navbar-dark border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -111,7 +110,6 @@
                 </ul>
             </div>
 
-            <!-- KOLOM 4: KONTAK PERUSAHAAN (Dinamis dari Database) -->
             <div class="col-lg-3 col-md-6">
                 <h6 class="fw-bold text-white mb-3 text-uppercase tracking-wider fs-6">Hubungi Kami</h6>
                 <ul class="list-unstyled d-flex flex-column gap-3 small text-secondary">

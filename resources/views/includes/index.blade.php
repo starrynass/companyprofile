@@ -21,7 +21,7 @@
                     Akselerasi Digitalisasi Bisnis Anda Bersama Kami
                 </h1>
                 <p class="lead text-light mb-4" style="text-shadow: 0 2px 5px rgba(0,0,0,0.7); max-width: 650px;">
-                    {{ $profil->nama_perusahaan ?? 'Belum ada nama perusahaan' }} menyediakan layanan pengembangan software, infrastruktur jaringan, dan konsultasi IT secara profesional.
+                    {{ $profil->nama_perusahaan ?? 'PT Digital Solusi Nusantara' }} menyediakan layanan pengembangan software, infrastruktur jaringan, dan konsultasi IT secara profesional.
                 </p>
                 <div class="d-flex gap-3 flex-wrap">
                     <a href="#produk" class="btn btn-indigo btn-lg px-4 shadow-lg fw-semibold btn-hover-grow hover-layer-group">
@@ -37,14 +37,12 @@
 </section>
 
 <div class="position-relative bg-slate-50" style="overflow-x: clip;">
-    <!-- Background Glow Orbs -->
     <div class="glow-orb position-absolute top-50 start-0 rounded-circle pointer-events-none" 
          style="width: 500px; height: 500px; background: #06b6d4; opacity: 0.20; filter: blur(110px); transform: translate(-30%, -50%); z-index: 0;"></div>
     
     <div class="glow-orb position-absolute bottom-0 end-0 rounded-circle pointer-events-none" 
          style="width: 400px; height: 400px; background: #6366f1; opacity: 0.20; filter: blur(90px); transform: translate(20%, 20%); z-index: 0;"></div>
 
-    <!-- SECTION PROFIL -->
     <section id="profil" class="py-5 border-bottom position-relative" style="z-index: 1;">
         <div class="container py-5">
             <div class="text-center mb-5" data-aos="fade-up">
@@ -57,7 +55,6 @@
                 <div class="col-12">
                     <div class="p-4 p-lg-5 bg-white rounded-4 border shadow-sm hover-lift hover-glow-border hover-rotate-icon">
                         <div class="row align-items-start gy-4">
-                            <!-- KOLOM KIRI: TEKS SEJARAH -->
                             <div class="col-lg-6">
                                 <div class="d-flex align-items-center gap-3 mb-4">
                                     <div class="icon-box-animate text-indigo bg-indigo-subtle rounded-4 d-inline-flex align-items-center justify-content-center flex-shrink-0" style="width: 50px; height: 50px;">
@@ -70,7 +67,6 @@
                                 </p>
                             </div>
 
-                            <!-- KOLOM KANAN: GAMBAR PERUSAHAAN (FIXED BUG VARIABLE) -->
                             <div class="col-lg-6 text-center">
                                 <div class="position-relative overflow-hidden rounded-4 shadow-sm border">
                                     @if(isset($profils->gambar_sejarah) && $profils->gambar_sejarah)
@@ -91,7 +87,6 @@
                 </div>
             </div>
 
-            <!-- BARIS 2: VISI & MISI -->
             <div class="row gy-4 align-items-stretch mb-4">
                 <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
                     <div class="p-4 p-lg-5 bg-white rounded-4 border shadow-sm h-100 hover-lift hover-glow-border hover-rotate-icon">
@@ -124,7 +119,6 @@
         </div>
     </section>
 
-    <!-- SECTION PRODUK -->
     <section id="produk" class="py-5 position-relative" style="z-index: 1;">
     <div class="container py-5">
         <div class="text-center mb-5" data-aos="fade-up">
@@ -139,7 +133,6 @@
                      data-aos="fade-up" 
                      data-aos-delay="{{ $loop->iteration * 100 }}">
                      
-                    <!-- TAMBAHKAN ID UNIK DI CARD INI -->
                     <div id="produk-{{ $item->id }}" class="card border-0 rounded-4 p-4 p-md-5 h-100 shadow-sm hover-lift hover-rotate-icon position-relative overflow-hidden bg-white d-flex flex-column justify-content-between">
                         <div>
                             <span class="card-number-badge" style="z-index: 2;">{{ sprintf('%02d', $loop->iteration) }}</span>
@@ -184,7 +177,6 @@
     </div>
 </section>
 
-    <!-- SECTION ARTIKEL -->
     <section id="artikel" class="py-5 bg-white border-bottom">
         <div class="container py-5">
             <div class="text-center mb-5" data-aos="fade-up">
@@ -196,14 +188,14 @@
             <div class="row g-4">
                 @forelse($artikels as $item)
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
-                        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden card-hover hover-lift">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden card-hover hover-lift d-flex flex-column">
                             <div class="position-relative overflow-hidden" style="height: 200px;">
                                 <img src="{{ $item->thumbnail_url }}" 
                                      class="card-img-top w-100 h-100 object-fit-cover" 
                                      alt="{{ $item->judul }}">
                             </div>
 
-                            <div class="card-body p-4 d-flex flex-column justify-content-between">
+                            <div class="card-body p-4 d-flex flex-column justify-content-between flex-grow-1">
                                 <div>
                                     <div class="text-muted small mb-2">
                                         <i class="fa-regular fa-calendar me-1"></i> 
@@ -215,12 +207,12 @@
                                     <p class="card-text text-muted small mb-3 line-clamp-3">
                                         {{ $item->ringkasan }}
                                     </p>
-                                    <div class="pt-3 border-top mt-auto hover-arrow">
-                                        <a href="{{ route('artikel', $item->id) }}" class="btn btn-outline-indigo btn-sm rounded-pill w-100 fw-semibold">
+                                </div>
+
+                                <div class="pt-3 border-top mt-3 hover-arrow">
+                                    <a href="{{ route('artikel', $item->id) }}" class="btn btn-outline-indigo btn-sm rounded-pill w-100 fw-semibold">
                                         Baca Selengkapnya <i class="fa-solid fa-arrow-right ms-1 transition-all"></i>
-                                        </a>
-                                    </div>
-            
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -232,9 +224,8 @@
                 @endforelse
             </div>
         </div>
-    </section> 
+    </section>
 
-    <!-- SECTION GALERI -->
     <section id="galeri" class="py-5 bg-slate-subtle border-bottom">
         <div class="container py-5">
             <div class="text-center mb-5" data-aos="fade-up">
@@ -255,8 +246,7 @@
                                     @else
                                         <span class="badge bg-indigo mb-2 fw-semibold">Dokumentasi</span>
                                     @endif
-                                    <!-- FIXED TAG MISMATCH -->
-                                    <h5 class="{{ $loop->index < 2 ? 'h5' : 'h6' }} galeri-title text-white fw-bold mb-0 line-clamp-2">
+                                    <h5 class="galeri-title text-white fw-bold mb-0 line-clamp-2">
                                         {{ $item->judul }}
                                     </h5>
                                 </div>
@@ -272,7 +262,6 @@
         </div>
     </section>
 
-    <!-- SECTION KONTAK -->
 <section id="kontak" class="py-5 bg-white">
         <div class="container py-5">
             <div class="text-center mb-5" data-aos="fade-up">
@@ -282,13 +271,11 @@
             </div>
 
             <div class="row g-4 align-items-stretch">
-                <!-- INFORMASI KONTAK & MAPS -->
                 <div class="col-lg-5" data-aos="fade-right" data-aos-delay="100">
                     <div class="card border-0 shadow-lg rounded-4 p-4 h-100 bg-slate-subtle d-flex flex-column justify-content-between">
                         <div>
                             <h4 class="fw-bold text-dark mb-4">Informasi Perusahaan</h4>
                             
-                            <!-- Alamat Kantor -->
                             <div class="d-flex align-items-start mb-4">
                                 <div class="icon-box bg-indigo-subtle text-indigo rounded-3 p-3 me-3 flex-shrink-0">
                                     <i class="fa-solid fa-location-dot fs-5"></i>
@@ -299,7 +286,6 @@
                                 </div>
                             </div>
 
-                            <!-- Nomor Telepon -->
                             <div class="d-flex align-items-start mb-4">
                                 <div class="icon-box bg-indigo-subtle text-indigo rounded-3 p-3 me-3 flex-shrink-0">
                                     <i class="fa-solid fa-phone fs-5"></i>
@@ -321,7 +307,6 @@
                             </div>
                         </div>
 
-                        <!-- Google Maps Embed -->
                         <div class="rounded-3 overflow-hidden shadow-sm mt-3" style="height: 200px;">
                             <iframe 
                                 src="{{ $kontak->google_maps_embed ?? 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.627341381363!2d107.6186326!3d-6.9350352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e882b53f65b3%3A0xb35a7b746d88b48b!2sSMK%20Negeri%204%20Bandung!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid' }}" 
@@ -371,7 +356,6 @@
     </section>
 </div>
 
-<!-- MODAL SUKSES -->
 <div class="modal fade" id="modalSuksesPesan" tabindex="-1" aria-labelledby="modalSuksesPesanLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content border-0 shadow-lg rounded-4 p-3">
@@ -389,7 +373,6 @@
     </div>
 </div>
 
-@push('scripts')
 @if(session('success'))
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -397,6 +380,4 @@
     });
 </script>
 @endif
-@endpush
-
 @endsection

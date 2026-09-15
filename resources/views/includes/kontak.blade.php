@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- HERO SECTION KONTAK -->
 <section class="position-relative text-white py-5 d-flex align-items-center"
          style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 27, 75, 0.90) 100%), url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; min-height: 45vh;">
     
@@ -84,7 +83,6 @@
                                 <span class="d-block text-muted" style="font-size: 11px; font-weight: 500;">WhatsApp</span>
                             </a>
 
-                            <!-- Instagram -->
                             <a href="https://instagram.com/{{ $kontak->instagram ?? 'digitalsolusi' }}" target="_blank" class="social-icon-btn text-danger" title="Instagram">
                                 <div class="rounded-circle shadow-sm d-flex align-items-center justify-content-center mx-auto mb-1 text-white" style="width: 50px; height: 50px; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);">
                                     <i class="fa-brands fa-instagram fs-4"></i>
@@ -92,7 +90,6 @@
                                 <span class="d-block text-muted" style="font-size: 11px; font-weight: 500;">Instagram</span>
                             </a>
 
-                            <!-- X (Twitter) -->
                             <a href="https://twitter.com/{{ $kontak->x ?? 'digitalsolusi' }}" target="_blank" class="social-icon-btn text-dark" title="X (Twitter)">
                                 <div class="rounded-circle shadow-sm d-flex align-items-center justify-content-center bg-dark text-white mx-auto mb-1" style="width: 50px; height: 50px;">
                                     <i class="fa-brands fa-x-twitter fs-4"></i>
@@ -100,7 +97,6 @@
                                 <span class="d-block text-muted" style="font-size: 11px; font-weight: 500;">X / Twitter</span>
                             </a>
 
-                            <!-- Facebook -->
                             <a href="https://facebook.com/{{ $kontak->facebook ?? 'digitalsolusi' }}" target="_blank" class="social-icon-btn text-primary" title="Facebook">
                                 <div class="rounded-circle shadow-sm d-flex align-items-center justify-content-center text-white mx-auto mb-1" style="width: 50px; height: 50px; background-color: #1877f2;">
                                     <i class="fa-brands fa-facebook fs-4"></i>
@@ -108,7 +104,6 @@
                                 <span class="d-block text-muted" style="font-size: 11px; font-weight: 500;">Facebook</span>
                             </a>
 
-                            <!-- Telepon -->
                             <a href="tel:{{ $kontak->telepon ?? '+6282112345678' }}" class="social-icon-btn text-secondary" title="Telepon">
                                 <div class="rounded-circle shadow-sm d-flex align-items-center justify-content-center bg-secondary text-white mx-auto mb-1" style="width: 50px; height: 50px;">
                                     <i class="fa-solid fa-phone-volume fs-5"></i>
@@ -118,7 +113,6 @@
                         </div>
                     </div>
 
-                    <!-- Google Maps Embed -->
                     <div class="rounded-4 overflow-hidden shadow-sm mt-4 border" style="height: 180px;">
                         <iframe 
                             src="{{ $kontak->google_maps_embed ?? 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.627341381363!2d107.6186326!3d-6.9350352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e882b53f65b3%3A0xb35a7b746d88b48b!2sSMK%20Negeri%204%20Bandung!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid' }}" 
@@ -128,7 +122,6 @@
                 </div>
             </div>
 
-            <!-- FORM HUBUNGI KAMI -->
             <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
                 <form action="{{ route('pesan.store') }}" method="POST" class="card p-4 p-md-5 border-0 shadow-lg rounded-4 bg-white h-100 justify-content-between">
                     @csrf
@@ -177,7 +170,6 @@
     </div>
 </div>
 
-<!-- MODAL SUKSES -->
 @if(session('success'))
 <div class="modal fade show" id="modalSuksesPesan" tabindex="-1" aria-labelledby="modalSuksesPesanLabel" aria-modal="true" role="dialog" style="display: block; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px);">
     <div class="modal-dialog modal-dialog-centered">
@@ -197,44 +189,4 @@
 </div>
 @endif
 
-<style>
-    .hover-shadow { transition: all 0.3s ease; }
-    .hover-shadow:hover { background: #ffffff !important; box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.08) !important; transform: translateY(-2px); }
-    .hover-lift { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .hover-lift:hover { transform: translateY(-3px); box-shadow: 0 1rem 1.5rem rgba(99, 102, 241, 0.2) !important; }
-
-    /* Efek Hover Kontak Item */
-    .contact-item-hover {
-        transition: all 0.3s ease;
-    }
-    .contact-item-hover:hover {
-        background-color: #f8fafc !important;
-        transform: translateX(5px);
-        box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.04);
-    }
-    .contact-item-hover:hover .icon-circle {
-        transform: scale(1.1) rotate(6deg);
-        background-color: #4f46e5 !important;
-        box-shadow: 0 0.5rem 1rem rgba(79, 70, 229, 0.3) !important;
-    }
-    .icon-circle {
-        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    /* Efek Hover Logo Sosmed Bulat */
-    .social-icon-btn {
-        text-decoration: none;
-        transition: transform 0.2s ease;
-    }
-    .social-icon-btn:hover {
-        transform: translateY(-4px);
-    }
-    .social-icon-btn:hover div {
-        transform: scale(1.12);
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-    }
-    .social-icon-btn div {
-        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-</style>
 @endsection

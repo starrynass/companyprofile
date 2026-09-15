@@ -6,12 +6,8 @@
     <title>Login Admin - DigitalSolusi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .bg-indigo { background-color: #6366f1; }
-        .text-indigo { color: #6366f1; }
-        .btn-indigo { background-color: #6366f1; color: #fff; }
-        .btn-indigo:hover { background-color: #4f46e5; color: #fff; }
-    </style>
+
+    <link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">
 </head>
 <body class="bg-light d-flex align-items-center min-vh-100 py-5">
 
@@ -22,7 +18,6 @@
                 <div class="card border-0 shadow-lg rounded-4 p-3 p-md-4">
                     <div class="card-body">
                         
-                        <!-- Header Logo -->
                         <div class="text-center mb-4">
                             <div class="bg-indigo text-white rounded-4 d-inline-flex align-items-center justify-content-center mb-3 shadow-sm" style="width: 56px; height: 56px;">
                                 <i class="fa-solid fa-user-lock fs-3"></i>
@@ -31,14 +26,12 @@
                             <p class="text-muted small">Masuk untuk mengelola data website</p>
                         </div>
 
-                        <!-- Alert Error jika Login Gagal -->
                         @if($errors->any())
                             <div class="alert alert-danger small rounded-3 mb-3">
                                 <i class="fa-solid fa-circle-exclamation me-1"></i> {{ $errors->first() }}
                             </div>
                         @endif
 
-                        <!-- Form Login -->
                         <form action="{{ route('login') }}" method="POST">
                             @csrf
                             <div class="mb-3">

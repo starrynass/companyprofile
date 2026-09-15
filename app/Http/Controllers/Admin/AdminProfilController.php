@@ -5,13 +5,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Profil;
 use App\Models\ProfilKeunggulan;
+use Illuminate\Support\Facades\Storage;
 
 class AdminProfilController extends Controller
 {
-    // Menampilkan halaman kelola profil
     public function index()
     {
-        // Ambil data profil pertama (karena profil perusahaan biasanya hanya ada 1 baris data)
         $profil = Profil::with('keunggulan')->first();
         return view('admin.profil', compact('profil'));
     }
@@ -25,45 +24,41 @@ class AdminProfilController extends Controller
             'visi'             => 'nullable|string',
             'misi'             => 'nullable|string',
             'nilai_perusahaan' => 'nullable|string',
-            // Chart Validation
+         
             'chart1_judul'     => 'nullable|string|max:255',
             'chart1_persen'    => 'nullable|integer|min:0|max:100',
             'chart2_judul'     => 'nullable|string|max:255',
             'chart2_persen'    => 'nullable|integer|min:0|max:100',
-            // CEO & Sambutan
+          
             'nama_ceo'         => 'nullable|string|max:255',
             'jabatan_ceo'      => 'nullable|string|max:255',
             'sambutan_ceo'     => 'nullable|string',
             'foto_ceo'         => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
-            // Validasi keunggulan
+           
             'keunggulan.*.id'    => 'nullable|exists:profil_keunggulans,id',
             'keunggulan.*.judul' => 'required|string|max:255',
             'keunggulan.*.icon'  => 'nullable|string|max:255',
             'keunggulan.*.deskripsi' => 'required|string',
         ]);
 
-        // Ambil data profil lama (jika ada) untuk pengecekan file gambar
         $profil = Profil::first();
 
-        // Handle Upload Gambar Sejarah
         $gambarSejarahName = $profil->gambar_sejarah ?? null;
         if ($request->hasFile('gambar_sejarah')) {
-            if ($profil && $profil->gambar_sejarah && file_exists(public_path('storage/' . $profil->gambar_sejarah))) {
-                unlink(public_path('storage/' . $profil->gambar_sejarah));
+            if ($profil && $profil->gambar_sejarah ) {
+               Storage::disk('public')->delete($profil->gambar_sejarah);
             }
             $gambarSejarahName = $request->file('gambar_sejarah')->store('profil', 'public');
         }
 
-        // Handle Upload Foto CEO
         $fotoCeoName = $profil->foto_ceo ?? null;
         if ($request->hasFile('foto_ceo')) {
-            if ($profil && $profil->foto_ceo && file_exists(public_path('storage/' . $profil->foto_ceo))) {
-                unlink(public_path('storage/' . $profil->foto_ceo));
+            if ($profil && $profil->foto_ceo) {
+                Storage::disk('public')->delete($profil->foto_ceo);
             }
             $fotoCeoName = $request->file('foto_ceo')->store('profil', 'public');
         }
 
-        // Update atau Buat profil utama
         $profil = Profil::updateOrCreate(
             ['id' => 1],
             [
